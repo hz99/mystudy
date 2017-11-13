@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        div{
+            width: 100%;
+            height: 100%;
+            font-size: 80px;
+            padding-top: 270px;
+            text-align: center;
+            font-family: '微软雅黑';
+            color: #fa7a73;
+            /*background: url("66..jpg") no-repeat center 370px ;*/
+            /*background-size: cover;*/
+        }
+        span{
+            font-size: 55px;
+            display: block;
+            padding-top: 50px;
+            color: #fa9394;
+        }
+        #div{
+            margin: 0;
+            padding: 0;
+
+        }
+        #div>img{
+            width: 997px;
+        }
+        #div>span{
+            width: 997px;
+            height: 220px;
+            display: block;
+            opacity: 0;
+            margin: 0 auto;
+            line-height: 100px;
+            transition: all 0.7s linear;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<div id="div">
+    <img src="66..jpg" id="img">
+    <span id="love">
+        喜欢你 是我这辈子做过 最好的事情<br>
+        这辈子我只想爱你一个人
+    </span>
+</div>
+<script>
+    var timer = null;
+    var box = document.getElementsByTagName('div')[0];
+    var lover = document.getElementById('love');
+    var img = document.getElementById('img');
+    var love = document.getElementById('love');
+    timer = setInterval(function(){
+        var newTime = new Date();
+        var futureTime = new Date('2017-12-02 00:00:00');
+        var sjc = futureTime.getTime() - newTime.getTime();
+        if(sjc<=0){
+            alert.log('生日快乐!');
+            clearInterval(timer);
+            return;
+        }
+        var day = parseInt(sjc/1000/60/60/24);
+        var hour = parseInt(sjc/1000/60/60%24);
+        var min = parseInt(sjc/1000/60%60);
+        var m = parseInt(sjc/1000%60);
+        var ms = parseInt(sjc%1000);
+
+        day = day < 10 ? '0' + day : day;
+        hour = hour < 10 ? '0' + hour : hour;
+        min = min < 10 ? '0' + min : min;
+        m = m < 10 ? '0' + m : m;
+
+        if(ms<10){
+            ms = '00' + ms;
+        }else if(ms<100){
+            ms = '0' + ms;
+        }
+        var str = '距离我飒女神生日还有<span>'+day+'天'+hour+'小时'+min+'分'+m+'秒'+ms+'毫秒</span>'
+        box.innerHTML = str;
+        box.style.height = '400px';
+    },1);
+
+        img.onmousedown = function () {
+            love.style.opacity = '1';
+        }
+        img.onmouseup = function () {
+            love.style.opacity = '0';
+        }
+
+
+
+</script>
+</body>
+</html>
